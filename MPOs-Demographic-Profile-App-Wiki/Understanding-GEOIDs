@@ -1,0 +1,215 @@
+# Understanding Geographic Identifiers (GEOIDs)
+
+## What are GEOIDs?
+
+Geographic Identifiers (GEOIDs)[^1] are numeric codes assigned by the U.S. Census Bureau and other federal and state agencies to uniquely identify geographic entities. These identifiers support the organization, exchange, and analysis of geographic and statistical data.
+
+Examples of geographic entities with unique GEOIDs include:
+
+- States
+- Counties
+- Congressional districts
+- Core Based Statistical Areas (CBSAs)
+- Census tracts
+- Block groups
+- Census blocks
+
+Every geographic area, from an entire state to an individual census block, has a unique GEOID.
+
+---
+
+## Why Are GEOIDs Important?
+
+GEOIDs provide a common identifier that allows geographic boundaries to be linked with demographic and survey data.
+
+Common uses include:
+
+- Joining demographic data to geographic datasets
+- Mapping and spatial analysis
+- Census and survey reporting
+- Data integration across multiple sources
+
+Without GEOIDs, matching demographic data to the correct geographic locations would be significantly more difficult and error-prone.
+
+---
+
+## Types of GEOID Codes
+
+Several organizations maintain geographic identifier systems, including:
+
+- American National Standards Institute (ANSI)
+- U.S. Census Bureau
+- U.S. Department of Education
+- U.S. Geological Survey (USGS)
+- Individual states
+
+Two common code systems are:
+
+- **FIPS Codes** (Federal Information Processing Series)
+- **GNIS Codes** (Geographic Names Information System) 【1-dae913】
+
+---
+
+## FIPS Codes
+
+### Overview
+
+The Census Bureau has published FIPS codes in census products for more than 30 years.
+
+FIPS codes are assigned alphabetically by geographic name for:
+
+- States
+- Counties
+- Places
+- County subdivisions
+- Core Based Statistical Areas
+- Consolidated cities
+- American Indian, Alaska Native, and Native Hawaiian areas (AIANNH)
+
+### Example
+
+County FIPS codes are unique only within a state, so the state code is prefixed to form a nationally unique identifier.
+
+Example county GEOIDs:
+
+| State | County Code | Combined FIPS |
+|---------|---------|---------|
+| Alabama | 001 | 01001 |
+| Alaska | 001 | 02001 |
+| Arizona | 001 | 04001 |
+
+The first two digits represent the state, while the last three digits identify the county. 【1-dae913】
+
+---
+
+## GNIS Codes
+
+### Overview
+
+GNIS (Geographic Names Information System) codes are maintained by the U.S. Geological Survey (USGS).
+
+Unlike FIPS:
+
+- Codes are assigned sequentially.
+- Codes are based on entry date.
+- Codes are not hierarchical.
+- Historical features remain in the database.
+
+Examples of GNIS features include:
+
+- Airports
+- Beaches
+- Cemeteries
+- Churches
+- Hospitals
+- Islands
+- Lakes
+- Rivers
+- Schools
+- Streams
+- Swamps
+- Populated places
+
+【1-dae913】
+
+---
+
+## FIPS vs. GNIS
+
+| Topic | FIPS | GNIS |
+|---------|---------|---------|
+| Creator | Various organizations including the Census Bureau | USGS |
+| Feature Types | Administrative and statistical geographies | Physical and cultural features |
+| Assignment Method | Alphabetical | Sequential |
+| Historical Records | No | Yes |
+| Code Changes | May change when names change | Remain stable |
+| Geographic Hierarchy | Hierarchical | Not hierarchical |
+| Length | Varies by geography | Up to 10 digits |
+| TIGER/Line Label | `FP` | `NS` |
+
+
+---
+
+## Census Bureau Codes
+
+The Census Bureau maintains codes for statistical geographies that are not covered by FIPS or GNIS, including:
+
+- Census regions
+- Census divisions
+- Census tracts
+- Block groups
+- Census blocks
+- Urban areas
+
+Many GEOIDs combine Census Bureau codes with FIPS codes to create unique hierarchical identifiers.
+
+---
+
+## Department of Education and State Codes
+
+Additional geographic coding systems are maintained by:
+
+### U.S. Department of Education
+
+For:
+
+- Elementary school districts
+- Secondary school districts
+- Unified school districts
+
+### State Governments
+
+For:
+
+- Voting districts
+- State senate districts
+- State house districts
+
+These codes often include state FIPS codes to preserve hierarchical relationships.
+
+---
+
+## GEOID Structure Examples
+
+| Area Type | GEOID Structure | Digits | Example GEOID |
+|------------|-----------------|--------|---------------|
+| State | STATE | 2 | 48 |
+| County | STATE + COUNTY | 5 | 48201 |
+| County Subdivision | STATE + COUNTY + COUSUB | 10 | 4820192975 |
+| Place | STATE + PLACE | 7 | 4835000 |
+| Census Tract | STATE + COUNTY + TRACT | 11 | 48201223100 |
+| Block Group | STATE + COUNTY + TRACT + BG | 12 | 482012231001 |
+| Census Block | STATE + COUNTY + TRACT + BLOCK | 15 | 482012231001050 |
+| Congressional District | STATE + CD | 4 | 0902 |
+| State Senate District | STATE + SLDU | 5 | 09033 |
+| State House District | STATE + SLDL | 5 | 09147 |
+| ZCTA | ZCTA | 5 | 20746 |
+
+### Notes
+
+- The first digit of a census block code represents the block group.
+- ZCTAs (ZIP Code Tabulation Areas) are generalized geographic representations of USPS ZIP Code service areas.
+
+【1-dae913】
+
+---
+
+## GEOIDs in data.census.gov Downloads
+
+Downloaded datasets commonly include two location fields:
+
+| GEO.ID | NAME |
+|-----------|-----------|
+| 0500000US10001 | Kent County, Delaware |
+| 0500000US10003 | New Castle County, Delaware |
+| 0500000US10005 | Sussex County, Delaware |
+
+### GEO.ID Structure
+
+Example:
+
+```text
+0500000US48201
+```
+
+[^1]: https://www.test.census.gov/programs-surveys/geography/guidance/geo-identifiers.html

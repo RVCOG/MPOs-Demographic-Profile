@@ -1,0 +1,9 @@
+NAME: geography_name
+
+GEO_ID: geo_id
+
+B03002_001E: total_population
+
+B03002_003E: white_non_hispanic
+
+B03002_012E:	hispanic_or_latino
