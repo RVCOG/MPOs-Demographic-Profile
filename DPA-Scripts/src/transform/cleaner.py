@@ -32,7 +32,3 @@ class CensusCleaner:
         return df
 
 
-
-# testing class
-cleaner = CensusCleaner(column_map_file=r"C:\GitHub-Repo-Workspace\MPOs-Demographic-Profile\DPA-Scripts\src\config\columns_map.yaml")
-print(cleaner.column_map)
