@@ -1,2 +1,5 @@
-.kilo
-data
+# Ignore agent folder
+DPA-Scripts/*.kilo
+
+# Ignore all CSV files used 
+DPA-Scripts/**/*.csv
