@@ -63,18 +63,3 @@ class DatasetValidator:
 
 
 
-
-# testing class
-# df = pd.DataFrame(
-#     {
-#         "geoid": ["123456", "12345", "123456"],
-#         "geography_name": ["block10", "block10", "block10"],
-#         "CountyFIPS": ["029", "029", "029"],
-#         "StateFIPS": ["41", "41", "41"],
-#         "total_population":[1000.00, 50, 300], 
-#         "percentage": [90.00, 14, 5.01]
-#     }
-# )
-
-# validator = DatasetValidator()
-

@@ -2,4 +2,4 @@
 DPA-Scripts/*.kilo
 
 # Ignore all CSV files used 
-DPA-Scripts/data/*.csv
+DPA-Scripts/data/**/*.csv
