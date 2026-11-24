@@ -1,0 +1,11 @@
+# testing class
+# test_df = pd.DataFrame(
+#     {
+#         "geoid": ["1400000US41029000100", "1400000US41029000100", "1400000US410290006061", "1500000US410290030022"],
+#         "geography_name": ["block10", "block10", "block10", "block11"],
+#         "CountyFIPS": ["029", "029", "029", "033"],
+#         "StateFIPS": ["41", "41", "41", "41"],
+#         "total_population":[1000.00, 50, 300, 8], 
+#         "percentage": [90.00, 14, 5.01, 0.001]
+#     }
+# )
